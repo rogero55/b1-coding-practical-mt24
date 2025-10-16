@@ -1,3 +1,4 @@
-from .dynamic import Submarine, Mission
+from .dynamic import Submarine, Mission, ClosedLoop
+from .control import PD_Controller
 
-_all_ = ['Submarine', 'Mission']
+_all_ = ['Submarine', 'Mission', 'ClosedLoop', 'PD_Controller']
