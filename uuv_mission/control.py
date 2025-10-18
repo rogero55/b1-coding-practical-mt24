@@ -5,10 +5,14 @@ class PD_Controller:
     def __init__(self, kp: float = 0.15, kd: float = 0.6):
         self.kp = kp
         self.kd = kd
-        self.errors = []
+        self.last_error = 0
+    
+    def reset(self):
+        self.last_error = 0
 
     def control(self, error: float, t: int) -> float:
-        self.errors.append(error)
-        prev_error = self.errors[t - 1] if t > 0 else 0
+        last_error = self.last_error
+        self.last_error = error
 
-        return self.kp * error + self.kd * (error - prev_error)
+        return self.kp * error + self.kd * (error - last_error)
+    
