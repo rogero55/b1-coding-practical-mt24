@@ -10,7 +10,7 @@ class PD_Controller:
     def reset(self):
         self.last_error = 0
 
-    def control(self, error: float, t: int) -> float:
+    def control(self, error: float) -> float:
         last_error = self.last_error
         self.last_error = error
 

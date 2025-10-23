@@ -109,8 +109,7 @@ class ClosedLoop:
             
             #get correction from controller
             actions[t] = self.controller.control(
-                error=mission.reference[t] - observation_t,
-                t=t
+                error=mission.reference[t] - observation_t
             )
             
             self.plant.transition(actions[t], disturbances[t])
